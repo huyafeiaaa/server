@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chome=1" />
+	    <!--视口--设备宽度--初始缩放比例--最小缩放比例--最大缩放比例--用户缩放-->
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <!--禁止浏览器自动的识别-电话号码-email--->
+	    <meta name="format-detection" content="telephone=no,email=no"/>
+	    <!--是否启用Web全屏-->
+	    <meta name="apple-mobile-web-app-capable" content='yes' />
+	    
+	    <link rel="stylesheet" type="text/css" href="new_file.css"/>
+	    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="swiper 轮播插件/css/swiper.min.css"/>
+	    <script type="text/javascript" src="bootstrap/js/jquery-3.1.1.min.js" ></script>
+	    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js" ></script>
+	    <script type="text/javascript" src="swiper 轮播插件/js/swiper.min.js" ></script>
+	    <script type="text/javascript" src="js/angular-1.4.6.min.js" ></script>
+	    <script type="text/javascript" src="js/angular-ui-router.js" ></script>
+		<title></title>
+		
+	</head>
+	<body ng-app="app"ng-controller="aaa">
+			<ul class="ul_a  navbar navbar-default navbar-fixed-bottom" >
+			<a ui-sref="1">
+				<li>
+					<img src="img/footer1.png"width="70%"/>
+					<p>首页</p>
+				</li>
+			</a>
+			<a ui-sref="2">
+				<li>
+				<img src="img/footer2.png"width="70%"/>
+				<p>全球购</p>
+				</li>
+			</a>
+			<a ui-sref="3">
+				<li>
+					<img src="img/footer3.png"width="70%"/>
+					<p>开讲</p>
+				</li>
+			</a>
+			<a ui-sref="4">
+				<li>
+					<img src="img/footer4.png"width="70%"/>
+					<p>购物车</p>
+				</li>
+			</a>
+			<a ui-sref="5">
+				<li>
+					<img src="img/footer5.png"width="70%"/>
+					<p>我的美团</p>
+				</li>
+			</a>
+		</ul>
+		<div ui-view></div>
+	</body>
+	<script type="text/javascript">
+		var app=angular.module("app",['ui.router']);
+		app.config(function($stateProvider,$urlRouterProvider) {
+				$urlRouterProvider.otherwise("3");
+				$urlRouterProvider.otherwise("/3/1");
+				$urlRouterProvider.when("/3", "3/1");
+			$stateProvider.state("1",{
+				url:"/1",
+				templateUrl:"跳转/首页.html"
+			}).state("2",{
+				url:"/2",
+				templateUrl:"跳转/全球购.html"
+			}).state("3",{
+				url:"/3",
+				templateUrl:"跳转/开讲.html"
+			}).state("3.1",{
+				url:"/1",
+				templateUrl:"跳转/全部.html"
+			}).state("3.2",{
+				url:"/2",
+				templateUrl:"跳转/育儿护理.html"
+			}).state("3.3",{
+				url:"/3",
+				templateUrl:"跳转/孕期百科.html"
+			}).state("3.4",{
+				url:"/4",
+				templateUrl:"跳转/产后妈咪.html"
+			})
+			.state("4",{
+				url:"/4",
+				templateUrl:"跳转/购物车.html"
+			}).state("5",{
+				url:"/5",
+				templateUrl:"跳转/我的美团.html"
+			})
+		})
+		app.controller("aaa",function ($scope,$http,$timeout,$interval) {
+			$http({
+				method:"get",
+				url:"data/data.json"
+			}).then(function (data) {
+//				console.log(data.data)
+					$timeout(function() {
+					var swiper = new Swiper(".swiper1", {
+						autoplay: "200",
+						loop: "true",
+						pagination: ".swiper-pagination",
+						paginationClickable: true
+					})
+				}, 200)
+				$scope.arr = data.data.swiper;
+				$scope.ul = data.data.ul;
+				$scope.p = data.data.p;
+				$scope.max = data.data;
+					 $interval(function(){
+		               	var  date1= new Date().getTime();
+						var  date2= new Date("2017/10/23 13:0:0").getTime();
+						var date3 = date2 -date1
+						var s = parseInt(date3/(1000*60*60)%24);
+						var f = parseInt(date3/(1000*60)%60);
+						var m = parseInt(date3/(1000)%60)
+						$(".shijian").html(s+":"+f+":"+m)
+	               },1000)
+			})
+		})
+	</script>
+</html>

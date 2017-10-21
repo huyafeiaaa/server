@@ -1,0 +1,27 @@
+{
+"swiper":[
+      {"img":"img/banner1.png"},
+      {"img":"img/banner2.png"},
+      {"img":"img/banner3.png"}
+        ],
+  "ul":[
+        {"img":"img/nav1.png","text1":"专家答","text2":"直问专家"},
+        {"img":"img/nav2.png","text1":"快听医生","text2":"快速咨询"},
+        {"img":"img/nav3.png","text1":"精说细说","text2":"即听即用"},
+        {"img":"img/nav4.png","text1":"系列课堂","text2":"妈妈必学"},
+        {"img":"img/nav5.png","text1":"已购课程","text2":"无限畅听"}
+        ],
+     "p":"即将开始",
+     "max":[
+        "img/list2.png",
+        "新生宝宝常见的异常症状,新手爸妈护理必看",
+        "沈月华 上海国际和平妇幼保健院 主任医师",
+        "￥12.9",
+        "69.9",
+        "1248人已购买",
+        "img/list1.png",
+        "孕晚期胎儿安全监测须知,让你做个安心妈妈",
+        "姚强  华西第二医院产妇科 副主任医师"
+        ]
+
+}

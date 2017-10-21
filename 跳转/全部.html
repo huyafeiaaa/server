@@ -1,0 +1,42 @@
+<div class="swiper-container swiper1">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" ng-repeat="x in arr"><img src="{{x.img}}"width="100%"/></div>
+	</div>
+	<div class="swiper-pagination"></div>
+</div>
+<ul class="ul_c">
+	<li ng-repeat="x in ul">
+		<img src="{{x.img}}"/>
+		<p>{{x.text1}}</p>
+		<p>{{x.text2}}</p>
+	</li>
+</ul>
+<p class="center">{{p}}</p>
+
+<div class="max">
+	<div>
+		<img src="{{max.max[0]}}"width="90%"/>
+		<div class="shijian"></div>
+	</div>
+	<div>
+		<p>{{max.max[1]}}</p>
+		<p>{{max.max[2]}}</p>
+		<div class="max_a">
+			<p style="color: red;">{{max.max[3]}} <s>{{max.max[4]}}</s></p>
+			<p>{{max.max[5]}}</p>
+		</div>
+	</div>
+</div>
+
+<div class="max">
+	<div>
+		<img src="{{max.max[6]}}"width="90%"/>
+	</div>
+	<div>
+		<p>{{max.max[7]}}</p>
+		<p>{{max.max[8]}}</p>
+	</div>
+</div>
+<br />
+<br />
+<br />
